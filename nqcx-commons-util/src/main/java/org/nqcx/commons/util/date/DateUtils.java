@@ -101,6 +101,32 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	}
 
 	/**
+	 * 获取月份最后一天 (YYYY-MM-dd)
+	 * @return
+     */
+	private static String lastDayAndYearOfMonth(){
+		Calendar cal = Calendar.getInstance();
+		String year =  String.valueOf(cal.get(Calendar.YEAR));
+		String month = String.valueOf(cal.get(Calendar.MONTH) + 1);
+		String day = String.valueOf(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+		return (year + "-" + (month.length() == 1 ? "0" + month : month) + "-"
+				+ (day.length() == 1 ? "0" + day : day));
+	}
+
+	/**
+	 * 获取当前月份第一天(YYYY-MM-dd)
+	 * @return
+     */
+	private static String firstDayAndYearOfMonth(){
+		Calendar cal = Calendar.getInstance();
+		String year =  String.valueOf(cal.get(Calendar.YEAR));
+		String month = String.valueOf(cal.get(Calendar.MONTH) + 1);
+		String day = String.valueOf(cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+		return (year + "-" + (month.length() == 1 ? "0" + month : month) + "-"
+				+ (day.length() == 1 ? "0" + day : day));
+	}
+
+	/**
 	 * 取得当前月份第一天
 	 * 
 	 * @return
@@ -233,6 +259,9 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 		System.out.println(firstDayOfMonth(2012, 2));
 		System.out.println(lastDayOfMonth(2012, 2));
+		System.out.print(lastDayAndYearOfMonth());
+		System.out.print(firstDayAndYearOfMonth());
+
 	}
 
 }
