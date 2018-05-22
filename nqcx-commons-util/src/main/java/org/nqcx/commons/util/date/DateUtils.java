@@ -104,7 +104,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * 获取月份最后一天 (YYYY-MM-dd)
 	 * @return
      */
-	private static String lastDayAndYearOfMonth(){
+	public static String lastDayAndYearOfMonth(){
 		Calendar cal = Calendar.getInstance();
 		String year =  String.valueOf(cal.get(Calendar.YEAR));
 		String month = String.valueOf(cal.get(Calendar.MONTH) + 1);
@@ -117,7 +117,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * 获取当前月份第一天(YYYY-MM-dd)
 	 * @return
      */
-	private static String firstDayAndYearOfMonth(){
+	public static String firstDayAndYearOfMonth(){
 		Calendar cal = Calendar.getInstance();
 		String year =  String.valueOf(cal.get(Calendar.YEAR));
 		String month = String.valueOf(cal.get(Calendar.MONTH) + 1);
