@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.nqcx.commons.doox.core.Doox"/>
+    <!-- 任意门配置，以下内容在业务里配置 -->
+    <!--<bean class="org.nqcx.commons.doox.spring.DoorScannerConfigurer">-->
+        <!--<property name="doorBasePackage">-->
+            <!--<bean class="java.lang.String">-->
+                <!--<constructor-arg value="cn.chineseall.book4.doox"/>-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+</beans>

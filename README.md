@@ -21,7 +21,7 @@
 <dependency>    
   <groupId>org.nqcx.commons</groupId>
   <artifactId>nqcx-commons</artifactId> 
-  <version>2.0.2-SNAPSHOT</version>
+  <version>2.1.0-SNAPSHOT</version>
 </dependency> 
 ```
 
