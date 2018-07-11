@@ -7,6 +7,7 @@
 package org.nqcx.commons.doox.core;
 
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -14,7 +15,7 @@ import java.lang.reflect.Proxy;
 /**
  * @author naqichuan 17/8/15 15:11
  */
-public class DoorProxy implements InvocationHandler {
+public class DoorProxy implements InvocationHandler, Serializable {
 
     private Object etherObject;
     private Method etherOpen;
@@ -31,7 +32,12 @@ public class DoorProxy implements InvocationHandler {
      * @return boject
      * @throws Throwable
      */
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        if (method.getDeclaringClass() == Object.class) {
+            return method.invoke(this, args);
+        }
+
         return etherOpen.invoke(etherObject, args);
     }
 
