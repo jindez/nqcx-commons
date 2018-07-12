@@ -40,7 +40,9 @@ public class DoorFactoryBean<T> implements FactoryBean<T>, ApplicationContextAwa
 
     @Override
     public T getObject() throws Exception {
-        return (T) DoorProxy.newInstance(this.getObjectType(), this.applicationContext.getBean(etherName), etherOpen);
+        Object door = this.applicationContext.getBean(etherName);
+        Method doorMethod = door.getClass().getMethod(etherOpen.getName(), etherOpen.getParameterTypes());
+        return (T) DoorProxy.newInstance(this.getObjectType(), door, doorMethod);
     }
 
     @Override
