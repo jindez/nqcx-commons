@@ -18,6 +18,7 @@
         <httpcomponents.version>4.2.1</httpcomponents.version>
         <spring.version>3.2.6.RELEASE</spring.version>
         <bcprov.version>1.56</bcprov.version>
+        <zxing.version>3.2.1</zxing.version>
     </properties>
 
     <modules>
@@ -270,6 +271,21 @@
                 <version>${bcprov.version}</version>
                 <optional>true</optional>
             </dependency>
+
+            <!-- 二维码 -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+                <optional>true</optional>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
