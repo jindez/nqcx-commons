@@ -152,7 +152,25 @@ public class SolrQueryBuilder {
             query = new SolrQuery();
         
         query.set("defType","dismax");
-        query.set("qf","name^200.0 author^20.0 authorPseudonym^20.0 publisher^2.0 authorizeName^2.0 announcer^2.0");
+        //封装权重字段
+        String weightStr = "name^200.0 author^20.0 authorPseudonym^20.0 publisher^2.0 authorizeName^2.0 announcer^2.0";//默认提升字段
+        if(dto.getParam("weight")!= null){
+        	StringBuffer sb = new StringBuffer();
+        	 Object obj = dto.getParam("weight");
+        	 if(obj instanceof Map){
+        		 Map<String,Double> map = (Map)obj;
+        		 if(map != null){
+        			 for (Map.Entry<String, Double> field : map.entrySet()){
+        				 sb.append(field.getKey()).append("^").append(field.getValue()).append(" ");
+                	 }
+        		 }
+        	 }
+        	 weightStr = sb.toString().trim();
+        }
+        logger.info(">>>SolrQuery Weight Set:"+weightStr);
+        query.set("qf",weightStr);
+        //移除dto中weight这个字段，防止在下面的步骤中使用到
+        dto.removeParam("weight");
 
         Map<String, Object> fields = dto.getParamsMap();
 
