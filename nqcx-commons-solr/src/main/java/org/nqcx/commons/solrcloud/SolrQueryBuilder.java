@@ -152,7 +152,7 @@ public class SolrQueryBuilder {
             query = new SolrQuery();
         
         query.set("defType","dismax");
-        query.set("qf","name^200.0 author^20.0 authorPseudonym^20.0 publisher^2.0 authorizeName^2.0");
+        query.set("qf","name^200.0 author^20.0 authorPseudonym^20.0 publisher^2.0 authorizeName^2.0 announcer^2.0");
 
         Map<String, Object> fields = dto.getParamsMap();
 
